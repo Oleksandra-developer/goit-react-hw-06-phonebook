@@ -26,6 +26,7 @@ class Form extends Component {
 
   render() {
     const { name, number } = this.state;
+    // console.log(store.getState());
     return (
       <form className={styles.addForm} onSubmit={this.handleSubmit}>
         <label>
@@ -64,7 +65,8 @@ Form.propTypes = {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  onSubmit: ({ name, number }) =>
-    dispatch(phonebookActions.add({ name, number })),
+  onSubmit: ({ name, number }) => {
+    dispatch(phonebookActions.add({ name, number }));
+  },
 });
 export default connect(null, mapDispatchToProps)(Form);
